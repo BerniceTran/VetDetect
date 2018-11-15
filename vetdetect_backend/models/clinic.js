@@ -21,7 +21,6 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       validate: {
         notEmpty: true,
-        isAlphanumeric: true,
       },
     },
     city: {
@@ -30,7 +29,6 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       validate: {
         notEmpty: true,
-        isEmail: true,
       },
     },
     state: {
@@ -39,7 +37,6 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       validate: {
         notEmpty: true,
-        isEmail: true,
       },
     },
 	zip: {
@@ -48,7 +45,6 @@ module.exports = (sequelize, DataTypes) => {
 	  unique: true,
 	  validate: {
 	    notEmpty: true,
-	    isEmail: true,
 	  },
 	},
 	latitude: {
@@ -57,7 +53,6 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       validate: {
         notEmpty: true,
-        isEmail: true,
       },
     },
     longitude: {
@@ -66,9 +61,10 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       validate: {
         notEmpty: true,
-        isEmail: true,
       },
     },
+
+    Clinic.associate
 
   });
 
