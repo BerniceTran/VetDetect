@@ -17,7 +17,7 @@ class Header extends React.Component {
                     <img src={pawPrint}/>
                 </Navbar.Brand>
                 <Navbar.Brand>
-                    <a href="/" >VetDetect</a>
+                    <a style={{color:'red'}} href="/" >VetDetect</a>
                 </Navbar.Brand>
             </Navbar.Header>
             <Navbar.Form pullRight>
@@ -27,7 +27,7 @@ class Header extends React.Component {
                     <FormControl type ="text" placeholder = "Password"/> 
                     </FormGroup>
                     {' '}
-                    <Button color ={'blue'} type="submit">Login</Button>
+                    <Button style={{background:'#d9534f',color:'white'}} type="submit">Login</Button>
                     {' '}
                     <SplitButton pullRight title = {'Sign up'}>
                         <MenuItem eventKey="1">Patient</MenuItem>
@@ -35,7 +35,7 @@ class Header extends React.Component {
                         <MenuItem eventKey="2">Veterinarian</MenuItem>
                     </SplitButton>
             </Navbar.Form>
-        </Navbar>;
+        </Navbar>
         </div>
       );
     }
