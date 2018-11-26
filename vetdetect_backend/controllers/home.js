@@ -30,5 +30,20 @@ router.delete('/:id', (req, res) => {
   });
 });
 
+const HomeController = {
+  registerRouter() {
+    const router = express.Router();
+
+    router.get('/', this.index);
+
+    return router;
+  },
+  index(req, res) {
+    res.redirect('/posts')
+  }
+};
+
+module.exports = HomeController.registerRouter();
+
 
 module.exports = router;

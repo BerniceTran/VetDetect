@@ -1,22 +1,22 @@
 {
   "development": {
-    "username": "DB_USERNAME",
-    "password": "DB_PASSWORD",
-    "database": "APP_development",
+    "username": "vetdetect_admin",
+    "password": "admin",
+    "database": "vetdetect",
     "host": "127.0.0.1",
     "dialect": "postgresql"
   },
   "test": {
-    "username": "DB_USERNAME",
-    "password": "DB_PASSWORD",
-    "database": "APP_test",
+    "username": "vetdetect_admin",
+    "password": "admin",
+    "database": "vetdetect_test",
     "host": "127.0.0.1",
     "dialect": "postgresql"
   },
   "production": {
-    "username": "DB_USERNAME",
-    "password": "DB_PASSWORD",
-    "database": "APP_production",
+    "username": "vetdetect_admin",
+    "password": "admin",
+    "database": "vetdetect_production",
     "host": "127.0.0.1",
     "dialect": "postgresql"
   }
