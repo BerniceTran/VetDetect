@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
   // };
 
   //ensures password is not saved in plaintext in database; salt and hash password for us
-  User.beforeCreate((user) =>  
+  PetOwner.beforeCreate((user) =>  
     new sequelize.Promise((resolve) => {
       bcrypt.hash(user.password_hash, null, null, (err, hashedPassword) => {
         resolve(hashedPassword);

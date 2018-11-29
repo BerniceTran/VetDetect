@@ -20,8 +20,8 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   VetService.associate = (models) => {
-    VetService.belongsTo(models.Clinic, {
-      foreignKey: "petID"
+    VetService.belongsToMany(models.Clinic, {
+      foreignKey: "clinicID"
     })
   }  
 
