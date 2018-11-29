@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Clinic = sequelize.define('Clinic', {
-    id: {
+    clinicID: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
@@ -39,15 +39,15 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-	zip: {
-	  type: DataTypes.INTEGER,
-	  allowNull: false,
-	  unique: true,
-	  validate: {
-	    notEmpty: true,
-	  },
-	},
-	latitude: {
+  	zip: {
+  	  type: DataTypes.INTEGER,
+  	  allowNull: false,
+  	  unique: true,
+  	  validate: {
+  	    notEmpty: true,
+  	  },
+  	},
+	  latitude: {
       type: DataTypes.DECIMAL,
       allowNull: false,
       unique: true,
@@ -63,10 +63,25 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-
-    Clinic.associate
-
   });
+
+  Clinic.associate = (models) => {
+    Clinic.hasMany(models.Veterinarian, {
+      foreignKey: "vetID"
+    })
+  }
+
+  Clinic.associate = (models) => {
+     Clinic.hasMany(models.VetService, {
+      foreignKey: "serviceID"
+     })
+  }
+
+  // Clinic.associate = function(models) {
+  //   Clinic.hasMany(models.Veterinarian, {
+  //     foreignKey: 'vetID',
+  //   });
+  // };
 
   return Clinic;
 };

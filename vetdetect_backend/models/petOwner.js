@@ -1,5 +1,14 @@
 module.exports = (sequelize, DataTypes) => {
   const PetOwner = sequelize.define('PetOwner', {
+    ownerID: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: true,
+      validate: {
+        notEmpty: true,
+      },
+      primaryKey: true
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -8,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
         isEmail: true,
       },
-      primaryKey: true
     },
     firstName: {
       type: DataTypes.STRING,
@@ -24,31 +32,22 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-    biography: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
-    },
-    collegeAttended: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
-    },
-  	yearGraduated: {
-  	  type: DataTypes.INTEGER,
-  	  allowNull: false,
-  	  validate: {
-  	    notEmpty: true,
-  	  },
-  	},
     password_hash: {
       type: DataTypes.STRING,
     },
   });
+
+  PetOwner.associate = (models) => {
+    Pet.hasMany(models.Pet, {
+      foreignKey: "petID"
+    })
+  }  
+
+  // PetOwner.associate = function(models) {
+  //   PetOwner.hasMany(models.Pet, {
+  //     foreignKey: 'petID',
+  //   });
+  // };
 
   //ensures password is not saved in plaintext in database; salt and hash password for us
   User.beforeCreate((user) =>  

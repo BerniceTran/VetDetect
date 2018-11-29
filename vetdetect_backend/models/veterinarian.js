@@ -1,5 +1,14 @@
 module.exports = (sequelize, DataTypes) => {
   const Veterinarian = sequelize.define('Veterinarian', {
+    vetID: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: true,
+      validate: {
+        notEmpty: true,
+      },
+      primaryKey: true
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -8,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
         isEmail: true,
       },
-      primaryKey: true
     },
     firstName: {
       type: DataTypes.STRING,
@@ -49,6 +57,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
   });
+
+  Veterinarian.associate = (models) => {
+    Veterinarian.belongsTo(models.Clinic, {
+      foreignKey: "clinicID"
+    })
+  }  
+
+  // Veterinarian.associate = function(models) {
+  //   Veterinarian.belongsTo(models.Clinic, {
+  //     foreignKey: 'clinicID',
+  //   });
+  // };
 
   //ensures password is not saved in plaintext in database; salt and hash password for us
   User.beforeCreate((user) =>  
