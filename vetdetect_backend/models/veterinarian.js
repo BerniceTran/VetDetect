@@ -64,11 +64,6 @@ module.exports = (sequelize, DataTypes) => {
     })
   }  
 
-  // Veterinarian.associate = function(models) {
-  //   Veterinarian.belongsTo(models.Clinic, {
-  //     foreignKey: 'clinicID',
-  //   });
-  // };
 
   //ensures password is not saved in plaintext in database; salt and hash password for us
   Veterinarian.beforeCreate((user) =>  
