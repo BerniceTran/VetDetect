@@ -19,11 +19,11 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  VetService.associate = (models) => {
-    VetService.belongsToMany(models.Clinic, {
-      foreignKey: "clinicID"
-    })
-  }  
+  // VetService.associate = (models) => {
+  //   VetService.belongsToMany(models.Clinic, {
+  //     foreignKey: "clinicID"
+  //   })
+  // }  
 
   return VetService;
 };

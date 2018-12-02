@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   PetOwner.associate = (models) => {
-    Pet.hasMany(models.Pet, {
+    PetOwner.hasMany(models.Pet, {
       foreignKey: "petID"
     })
   }  
