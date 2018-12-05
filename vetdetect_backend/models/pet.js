@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: true,
       },
-      primaryKey: true;
+      primaryKey: true
     },
     name: {
       type: DataTypes.STRING,
