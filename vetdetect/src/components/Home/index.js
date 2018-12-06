@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import InputGroup from 'react-bootstrap/lib/InputGroup';
 import MenuItem from 'react-bootstrap/lib/MenuItem';
@@ -7,7 +8,7 @@ import InputGroupAddon from 'react-bootstrap/lib/InputGroupAddon';
 import InputGroupButton from 'react-bootstrap/lib/InputGroupButton';
 import DropdownButton from 'react-bootstrap/lib/DropdownButton';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
-
+import { Route, Switch } from 'react-router-dom';
 
 class InsuranceDropDown extends React.Component {
     constructor(){
@@ -40,9 +41,6 @@ class InsuranceDropDown extends React.Component {
 }
 
 
-
-
-
 class Home extends React.Component {
     render() {
       return (
@@ -62,7 +60,7 @@ class Home extends React.Component {
                 
                     <InputGroupButton>
                         <InsuranceDropDown insuranceType = 'insurance'/>
-                        <Button style={{
+                        <Button href="/Results" style={{
                             background:'#d9534f',
                             color:'white'}}>
                             <Glyphicon glyph ="glyphicon glyphicon-search"/>
@@ -76,4 +74,4 @@ class Home extends React.Component {
     }
   }
 
-  export default(Home);
+  export default withRouter(Home);
